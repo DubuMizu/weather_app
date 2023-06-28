@@ -1,36 +1,56 @@
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': 'f90d4146b8msh5847aa2f609ebb4p127cfajsna9309ce87c8b',
-		'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
-	}
+let weather = {
+    "apiKey":"67dbd100d432f222c3e377a9f8b784bc",
+
+    fetchWeather: async function(city)
+    {
+
+        let response = await fetch(
+            "https://api.openweathermap.org/data/2.5/weather?q=" 
+            + city 
+            + "&units=metric&appid=" 
+            + this.apiKey
+        );
+
+        if (response.status == 404){
+            document.querySelector(".weather").style.display = "none";
+            document.querySelector(".error").style.display = "block";       
+        }
+
+        else {
+            let data = await response.json()
+            const {name} = data;
+            const {icon, description} = data.weather[0];
+            const {temp, humidity} = data.main;
+            const {speed} = data.wind;
+            document.querySelector(".city").innerHTML = "Weather in " + name;
+            document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
+            document.querySelector(".description").innerHTML = description;
+            document.querySelector(".temperature").innerHTML = temp.toFixed(1) + "°C";
+            document.querySelector(".humidity").innerHTML = "Humidity is " + humidity + "%";
+            document.querySelector(".wind").innerHTML = "Wind speed is " + speed +  "km/h";
+            document.querySelector(".weather").classList.remove("loading");
+            document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
+            document.querySelector(".weather").style.display = "block";
+            document.querySelector(".error").style.display = "none";
+        }
+  
+    },
+
+    
+    search: function() {
+        this.fetchWeather(document.querySelector(".search-bar").value);
+    },
+
 };
 
-const getWeather = (city)=>{
-    fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Singapore', options)
-        .then(response => response.json())
-        .then(response => {
-            
-            console.log(response)
-        
-            cloud_pct.innerHTML = response.cloud_pct
-            temp.innerHTML = response.temp
-            feels_like.innerHTML = response.feels_like
-            humidity.innerHTML = response.humidity
-            min_temp.innerHTML = response.min_temp
-            max_temp.innerHTML = response.max_temp
-            wind_speed.innerHTML = response.wind_speed
-            wind_degrees.innerHTML = response.wind_degrees
-            sunrise.innerHTML = response.sunrise
-            sunset.innerHTML = response.sunset
-        })
-        .catch(err => console.error(err)); 
-}
+document.querySelector(".search button").addEventListener("click", function() {
+    weather.search();
+});
 
-submit.addEventListener("click", ()=>{
-    getWeather(city.value)
-})
-
-getWeather("Singapore");
+document.querySelector(".search-bar").addEventListener("keyup", function(event) {
+    if (event.key == "Enter") {
+        weather.search();
+    }
+});
 
 
