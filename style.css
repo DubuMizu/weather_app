@@ -21,6 +21,17 @@ body {
     opacity: 80%;
 }
 
+.settings {
+    background: #000000;
+    color: white;
+    padding:  2em;
+    border-radius: 30px;
+    width:  100%;
+    max-width: 420px;
+    margin: 1em;
+    display: none;
+}
+
 h1.temperature {
     margin: 0;
     margin-bottom: 0.4em;
@@ -33,11 +44,11 @@ h1.temperature {
  }
 
  button {
-    margin: 0.5em;
+    margin: 0.3em;
     border-radius: 50%;
     border: none;
     height: 44px;
-    width: 44px;
+    width: 48px;
     outline: none;
     background: #7c7c7c2b;
     color: white;
@@ -95,4 +106,59 @@ button:hover {
     margin-top: 10px;
     font-size: 14px;
     display: none;
+}
+
+.empty-search {
+    text-align: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+.btn-back {
+    margin: 0.3em;
+    margin-left: -3px;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    display: inline-block;
+}
+
+.settings {
+    max-width: 550px;
+}
+
+.settings-header {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.checkbox {
+    margin: 0.3em;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: none;
+    height: 20px;
+    width: 20px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    vertical-align: middle;
+    float: right;
+    margin-top: 20px;
+}
+
+p.settingsP {
+    display: inline-block;
+    vertical-align: middle;
 }

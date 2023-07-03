@@ -18,6 +18,9 @@
       <button>
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1.5em" width="1.5em" xmlns="http://www.w3.org/2000/svg"><path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z"></path><path d="M11.412,8.586C11.791,8.966,12,9.468,12,10h2c0-1.065-0.416-2.069-1.174-2.828c-1.514-1.512-4.139-1.512-5.652,0 l1.412,1.416C9.346,7.83,10.656,7.832,11.412,8.586z"></path></svg>
       </button>
+      <button class="settings-btn">
+        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+      </button>
     </div>
     <div class="error">
       <p>That city's name is invalid.</p>
@@ -33,5 +36,42 @@
       <div class="wind">Wind Speed is </div>
     </div>
   </div>
+  <div class="settings">
+    <button class="btn-back">
+      <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M21 11L6.414 11 11.707 5.707 10.293 4.293 2.586 12 10.293 19.707 11.707 18.293 6.414 13 21 13z"></path></svg> 
+    </button>
+    <h1 class="settings-header">Settings</h1>
+    <div class="settings-body">
+      <div class="body-div">
+        <p class="settingsP">Include feels like temperature in the report.</p>
+        <input type="checkbox" class="feelslikeBox checkbox">
+      </div>
+      <div class="body-div">
+        <p class="settingsP">Include humidity in the report.</p>
+        <input type="checkbox" class="humidityBox checkbox">
+      </div>
+      <div class="body-div">
+        <p class="settingsP">Include pressure in the report.</p>
+        <input type="checkbox" class="pressureBox checkbox">
+      </div>
+      <div class="body-div">
+        <p class="settingsP">Include minimum temperature in the report.</p>
+        <input type="checkbox" class="mintempBox checkbox">
+      </div>
+      <div class="body-div">
+        <p class="settingsP">Include the maximum temperature in the report.</p>
+        <input type="checkbox" class="maxtempBox checkbox">
+      </div>
+      <div class="body-div">
+        <p class="settingsP">Include the wind speed in the report.</p>
+        <input type="checkbox" class="windspeedBox checkbox">
+      </div>
+      <div class="body-div">
+        <p class="settingsP">Include the wind direction in the report.</p>
+        <input type="checkbox" class="winddirectionBox checkbox">
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
