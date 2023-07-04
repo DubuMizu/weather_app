@@ -21,14 +21,42 @@ let weather = {
             console.log(data);
             const {name} = data;
             const {icon, description} = data.weather[0];
-            const {temp, humidity} = data.main;
-            const {speed} = data.wind;
+            const {temp, humidity, feels_like, temp_min, temp_max, pressure} = data.main;
+            const {speed, deg} = data.wind;
             document.querySelector(".city").innerHTML = "Weather in " + name;
             document.querySelector(".icon").src = "https://openweathermap.org/img/wn/" + icon + ".png";
             document.querySelector(".description").innerHTML = description;
             document.querySelector(".temperature").innerHTML = temp.toFixed(1) + "°C" + " | " + (temp * 9/5 + 32).toFixed(1) + "°F";
-            document.querySelector(".humidity").innerHTML = "Humidity is " + humidity + "%";
-            document.querySelector(".wind").innerHTML = "Wind speed is " + speed +  "km/h";
+
+            // Add information based on user's settings.
+
+            if (localStorage.getItem("minMaxTemp") == "true")
+            {
+                document.querySelector(".minMaxTemp").innerHTML = "Lows of " + temp_min.toFixed(1) + "°C" + " | " + (temp_min * 9/5 + 32).toFixed(1) + "°F" + "<br>" +
+                "Highs of " + temp_max.toFixed(1) + "°C" + " | " + (temp_max * 9/5 + 32).toFixed(1) + "°F";
+            }
+            if (localStorage.getItem("feelsLike") == "true")
+            {
+                document.querySelector(".feelsLike").innerHTML = "It feels like " + feels_like.toFixed(1) + "°C" + " | " + (feels_like * 9/5 + 32).toFixed(1) + "°F";
+            }
+            if (localStorage.getItem("humidity") == "true")
+            {
+                document.querySelector(".humidity").innerHTML = "Humidity is " + humidity + "%";
+            }
+            if (localStorage.getItem("pressure") == "true")
+            {
+                document.querySelector(".pressure").innerHTML = "Pressure is " + pressure + "hPa";
+            }
+            if (localStorage.getItem("windSpeed") == "true")
+            {
+                document.querySelector(".windSpeed").innerHTML = "Wind speed is " + speed +  "km/h";
+            }
+            if (localStorage.getItem("windDirection") == "true")
+            {
+                document.querySelector(".windDirection").innerHTML = "Wind is blowing at " + deg +  "°";
+            }
+            document.querySelector(".windSpeed").innerHTML = "Wind speed is " + speed +  "km/h";
+
             document.querySelector(".weather").classList.remove("loading");
             document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
             document.querySelector(".weather").style.display = "block";
@@ -83,8 +111,7 @@ let ls = {
             localStorage.setItem("feelsLike", "false");
             localStorage.setItem("humidity", "true");
             localStorage.setItem("pressure", "false");
-            localStorage.setItem("minTemp", "false");
-            localStorage.setItem("maxTemp", "false");
+            localStorage.setItem("minMaxTemp", "false");
             localStorage.setItem("windSpeed", "true");
             localStorage.setItem("windDirection", "false");
         }
@@ -97,8 +124,7 @@ let ls = {
         localStorage.setItem("feelsLike", "false");
         localStorage.setItem("humidity", "true");
         localStorage.setItem("pressure", "false");
-        localStorage.setItem("minTemp", "false");
-        localStorage.setItem("maxTemp", "false");
+        localStorage.setItem("minMaxTemp", "false");
         localStorage.setItem("windSpeed", "true");
         localStorage.setItem("windDirection", "false");
     },
@@ -117,13 +143,9 @@ let ls = {
         {
             document.querySelector(".pressureBox").checked = true;
         }
-        if (localStorage.getItem("minTemp") == "true")
+        if (localStorage.getItem("minMaxTemp") == "true")
         {
-            document.querySelector(".mintempBox").checked = true;
-        }
-        if (localStorage.getItem("maxTemp") == "true")
-        {
-            document.querySelector(".maxtempBox").checked = true;
+            document.querySelector(".minmaxtempBox").checked = true;
         }
         if (localStorage.getItem("windSpeed") == "true")
         {
