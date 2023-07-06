@@ -35,27 +35,55 @@ let weather = {
                 document.querySelector(".minMaxTemp").innerHTML = "Lows of " + temp_min.toFixed(1) + "°C" + " | " + (temp_min * 9/5 + 32).toFixed(1) + "°F" + "<br>" +
                 "Highs of " + temp_max.toFixed(1) + "°C" + " | " + (temp_max * 9/5 + 32).toFixed(1) + "°F";
             }
+            else
+            {
+                document.querySelector(".minMaxTemp").innerHTML = "";
+            } 
+
             if (localStorage.getItem("feelsLike") == "true")
             {
                 document.querySelector(".feelsLike").innerHTML = "It feels like " + feels_like.toFixed(1) + "°C" + " | " + (feels_like * 9/5 + 32).toFixed(1) + "°F";
             }
+            else
+            {
+                document.querySelector(".feelsLike").innerHTML = "";
+            } 
+
             if (localStorage.getItem("humidity") == "true")
             {
                 document.querySelector(".humidity").innerHTML = "Humidity is " + humidity + "%";
             }
+            else
+            {
+                document.querySelector(".humidity").innerHTML = "";
+            } 
+
             if (localStorage.getItem("pressure") == "true")
             {
                 document.querySelector(".pressure").innerHTML = "Pressure is " + pressure + "hPa";
             }
+            else
+            {
+                document.querySelector(".pressure").innerHTML = "";
+            } 
+
             if (localStorage.getItem("windSpeed") == "true")
             {
                 document.querySelector(".windSpeed").innerHTML = "Wind speed is " + speed +  "km/h";
             }
+            else
+            {
+                document.querySelector(".windSpeed").innerHTML = "";
+            } 
+
             if (localStorage.getItem("windDirection") == "true")
             {
                 document.querySelector(".windDirection").innerHTML = "Wind is blowing at " + deg +  "°";
             }
-            document.querySelector(".windSpeed").innerHTML = "Wind speed is " + speed +  "km/h";
+            else
+            {
+                document.querySelector(".windDirection").innerHTML = "";
+            } 
 
             document.querySelector(".weather").classList.remove("loading");
             document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + name + "')"
@@ -101,7 +129,6 @@ document.querySelector(".btn-back").addEventListener("click", function() {
 });
 
 // Local storage
-
 let ls = {
     defaultSettings: function()
     {
@@ -156,7 +183,81 @@ let ls = {
             document.querySelector(".winddirectionBox").checked = true;
         }
     },
+
 }
+
+// Change local storage based on if checkbox is checked or not
+document.getElementById("feelslikeBox").addEventListener("change", function() {
+    if (document.getElementById("feelslikeBox").checked === true)
+    {
+        localStorage.setItem("feelsLike", "true");
+    }
+
+    if (document.getElementById("feelslikeBox").checked === false)
+    {
+        localStorage.setItem("feelsLike", "false");
+    }
+})
+
+document.getElementById("humidityBox").addEventListener("change", function() {
+    if (document.getElementById("humidityBox").checked === true)
+    {
+        localStorage.setItem("humidity", "true");
+    }
+
+    if (document.getElementById("humidityBox").checked === false)
+    {
+        localStorage.setItem("humidity", "false");
+    }
+})
+
+document.getElementById("pressureBox").addEventListener("change", function() {
+    if (document.getElementById("pressureBox").checked === true)
+    {
+        localStorage.setItem("pressure", "true");
+    }
+
+    if (document.getElementById("pressureBox").checked === false)
+    {
+        localStorage.setItem("pressure", "false");
+    }
+})
+
+document.getElementById("windspeedBox").addEventListener("change", function() {
+    if (document.getElementById("windspeedBox").checked === true)
+    {
+        localStorage.setItem("windSpeed", "true");
+    }
+
+    if (document.getElementById("windspeedBox").checked === false)
+    {
+        localStorage.setItem("windSpeed", "false");
+    }
+})
+
+document.getElementById("winddirectionBox").addEventListener("change", function() {
+    if (document.getElementById("winddirectionBox").checked === true)
+    {
+        localStorage.setItem("windDirection", "true");
+    }
+
+    if (document.getElementById("winddirectionBox").checked === false)
+    {
+        localStorage.setItem("windDirection", "false");
+    }
+})
+
+document.getElementById("minmaxtempBox").addEventListener("change", function() {
+    if (document.getElementById("minmaxtempBox").checked === true)
+    {
+        localStorage.setItem("minMaxTemp", "true");
+    }
+
+    if (document.getElementById("minmaxtempBox").checked === false)
+    {
+        localStorage.setItem("minMaxTemp", "false");
+    }
+})
 
 ls.defaultSettings();
 ls.checkSettings();
