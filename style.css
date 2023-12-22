@@ -19,6 +19,108 @@ body {
     max-width: 420px;
     margin: 1em;
     opacity: 80%;
+    text-align: center;
+}
+
+.yc-card {
+    background: #000000;
+    color: white;
+    padding:  2em;
+    border-radius: 30px;
+    width:  100%;
+    max-width: 600px;
+    max-height: 1000px;
+    margin: 1em;
+    opacity: 80%;
+    text-align: center;
+    display: none;
+}
+
+.yc-btn {
+    width:  100%; 
+    max-width: 255px;
+    outline: none;
+    border-radius: 30px;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    text-align: center;
+    font-family: inherit;
+}
+
+.yc-back {
+    margin: 0.3em;
+    margin-left: -3px;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    display: inline-block;
+}
+
+.gallery {
+    color: white;
+    padding:  2em;
+    border-radius: 30px;
+    width:  100%;
+    max-width: 500px;
+    margin: 1em;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+}
+
+.gallery-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20% auto;
+}
+
+.gallery div {
+    width: 100%;
+    display: grid;
+    grid-gap: 15px;
+    padding: 10px;
+    flex: none;
+    align-items: center;
+}
+
+.city-card {
+    max-width: 250px;
+    padding: 10px;
+    max-height: 300px;
+    justify-content: center;
+    text-align: center;
+}
+
+.arrow-btn {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.arrow-btn:hover {
+    color:#7c7c7c6b;
+    transition: 0.1s ease-in-out;
+}
+
+.savecity-btn {
+    margin: 0.2em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 44px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
 }
 
 .settings {
@@ -31,10 +133,26 @@ body {
     margin: 1em;
     display: none;
 }
+    .settings-btn {
+    margin: 0.3em;
+    border-radius: 50%;
+    border: none;
+    height: 44px;
+    width: 48px;
+    outline: none;
+    background: #7c7c7c2b;
+    color: white;
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+    }
 
 h1.temperature {
     margin: 0;
     margin-bottom: 0.4em;
+}
+
+h1.title {
+    text-align: center;
 }
 
 .search {
@@ -43,7 +161,7 @@ h1.temperature {
     justify-content: center;
  }
 
- button {
+ .search-btn {
     margin: 0.3em;
     border-radius: 50%;
     border: none;
